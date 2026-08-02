@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* 
+  Navigo Design System Theme Variables
+  Default: Sleek Dark / Glassmorphic Obsidian (Tesla/Apple Maps inspired)
+*/
+:root {
+  /* Navigo Premium Brand Colors (Light Theme) */
+  --background: #F5F7FA;
+  --background-secondary: #FFFFFF;
+  --foreground: #0F172A; /* slate-900 */
+
+  --primary: #0057FF;
+  --primary-hover: #1A6AFF;
+  --primary-glow: rgba(0, 87, 255, 0.4);
+
+  --cyan: #00D6FF;
+  
+  --secondary: #0A0A0C;
+  --secondary-hover: #131316;
+
+  --accent: #0057FF;
+  --accent-hover: #00D6FF;
+
+  --card: rgba(10, 10, 12, 0.6);
+  --card-border: rgba(255, 255, 255, 0.05);
+
+  --glass-bg: rgba(5, 5, 5, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Typography / Text Colors */
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-disabled: rgba(255, 255, 255, 0.2);
+
+  /* Status Colors */
+  --success: #2EE59D;
+  --warning: #FFC857;
+  --danger: #FF4D6D;
+  --info: #00D6FF;
+
+  /* Transition Curves */
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-speed: 0.25s;
+}
+
+/* Light Theme (Ignored for Premium Dark Mode landing page, but kept for compatibility) */
+.light {
+  --background: #f4f4f5;
+  --foreground: #09090b;
+}
+
+/* Tailwind v4 Config Mapping */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-cyan: var(--cyan);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+}
+
+/* Global Reset & Scrollbars styling */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Inter, sans-serif;
+  overflow-x: hidden;
+  transition: background-color var(--transition-speed) var(--ease-apple), color var(--transition-speed) var(--ease-apple);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Selection Highlight */
+::selection {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Focus Indicator Ring */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Accessibility: Support Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,8 @@
+export interface OTPInputProps {
+  length?: number;
+  value?: string;
+  onChange?: (value: string) => void;
+  error?: string;
+  label?: string;
+  className?: string;
+}
